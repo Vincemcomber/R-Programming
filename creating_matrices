@@ -1,0 +1,67 @@
+
+R version 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # CREATING MATRICES
+> M<-matrix(c(1,3,4,64,11,34), nrow=3, ncol=2, byrow=FALSE)
+> M
+     [,1] [,2]
+[1,]    1   64
+[2,]    3   11
+[3,]    4   34
+> 
+> M[1,2]
+[1] 64
+> 
+> M[1]
+[1] 1
+> 
+> M[1,]
+[1]  1 64
+> 
+> M[,2]
+[1] 64 11 34
+> 
+> 
+> N<-matrix(c(10, 10, 10), nrow=3, ncol=1)
+> N
+     [,1]
+[1,]   10
+[2,]   10
+[3,]   10
+> 
+> cbind(M,N)
+     [,1] [,2] [,3]
+[1,]    1   64   10
+[2,]    3   11   10
+[3,]    4   34   10
+> 
+> a<-c(M)
+> diag(c(1,2,3))
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    2    0
+[3,]    0    0    3
+> 
+> diag(3)
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1
+> 
+> 

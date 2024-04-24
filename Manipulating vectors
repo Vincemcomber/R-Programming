@@ -1,0 +1,78 @@
+
+R version 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> v<-1:10
+> w<-10:1
+> 
+> #Modyfying a single value
+> v[1]<-2
+> v
+ [1]  2  2  3  4  5  6  7  8  9 10
+> 
+> #Modyfying a range of values.
+> w[w<5]<-1
+> w
+ [1] 10  9  8  7  6  5  1  1  1  1
+> 
+> #Deleting a vector
+> u<-1:5
+> u
+[1] 1 2 3 4 5
+> u<-NULL
+> u
+NULL
+> 
+> #Vector Arithmetic
+> #Operating element wise
+> v+w
+ [1] 12 11 11 11 11 11  8  9 10 11
+> v-w
+ [1] -8 -7 -5 -3 -1  1  6  7  8  9
+> v*w
+ [1] 20 18 24 28 30 30  7  8  9 10
+> v/w
+ [1]  0.2000000  0.2222222  0.3750000  0.5714286  0.8333333  1.2000000
+ [7]  7.0000000  8.0000000  9.0000000 10.0000000
+> 
+> #Operating with scalars.
+> v+10
+ [1] 12 12 13 14 15 16 17 18 19 20
+> 
+> v*2
+ [1]  4  4  6  8 10 12 14 16 18 20
+> 
+> #Combine vectors
+> u<-c(v,w)
+> 
+> #Vectors functions
+> sum(v)
+[1] 56
+> prod(v)
+[1] 7257600
+> min(v)
+[1] 2
+> max(v)
+[1] 10
+> mean(v)
+[1] 5.6
+> median(v)
+[1] 5.5
+> mode(v)
+[1] "numeric"
+> 

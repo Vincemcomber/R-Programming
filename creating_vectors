@@ -1,0 +1,70 @@
+
+R version 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #Using the colon syntax
+> v<-1:10
+> v
+ [1]  1  2  3  4  5  6  7  8  9 10
+> 10:1
+ [1] 10  9  8  7  6  5  4  3  2  1
+> -10:10
+ [1] -10  -9  -8  -7  -6  -5  -4  -3  -2  -1   0   1   2   3   4   5   6   7   8
+[20]   9  10
+> 
+> #Using the c function
+> c(5,7,10,99,v)
+ [1]  5  7 10 99  1  2  3  4  5  6  7  8  9 10
+> 
+> #using sequence
+> #seq(from = 1.5, to=22.5, by=0.5)
+> seq(1.5, 22.5, 0.5)
+ [1]  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0  8.5
+[16]  9.0  9.5 10.0 10.5 11.0 11.5 12.0 12.5 13.0 13.5 14.0 14.5 15.0 15.5 16.0
+[31] 16.5 17.0 17.5 18.0 18.5 19.0 19.5 20.0 20.5 21.0 21.5 22.0 22.5
+> 
+> seq(from=25, to=103, length.out=7)
+[1]  25  38  51  64  77  90 103
+> 
+> ##ACCESS ELEMENTS
+> v[1]
+[1] 1
+> v[0]
+integer(0)
+> type(v)
+Error in type(v) : could not find function "type"
+> length(v)
+[1] 10
+> typeof(v)
+[1] "integer"
+> 
+> v[-2]
+[1]  1  3  4  5  6  7  8  9 10
+> v[v>5]
+[1]  6  7  8  9 10
+> 
+> 
+> x<- c("url" = "www.example.com", "page" = "index.html")
+> x["url"]
+              url 
+"www.example.com" 
+> unname(x["url"])
+[1] "www.example.com"
+> names(x)
+[1] "url"  "page"
+> 
