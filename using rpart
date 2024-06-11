@@ -1,0 +1,70 @@
+
+R version 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(rpart)
+> 
+> set.seed(111)
+> iris_training<-iris%>%sample_frac(0.90)
+> iris_test<-iris%>%setdiff(iris_training)
+> 
+> iris_tree<-rpart(Species~Petal.Length + Petal.Width,
++                  data=iris_training,
++                  method="class")
+> 
+> plot(iris_tree, uniform=TRUE, margon=0.5)
+Warning messages:
+1: In plot.window(...) : "margon" is not a graphical parameter
+2: In plot.xy(xy, type, ...) : "margon" is not a graphical parameter
+3: In title(...) : "margon" is not a graphical parameter
+> text(iris_tree,use.n=TRUE)
+> 
+> iris_test["Predicted"]<-
++     predict(iris_tree,iris_test,type="class")
+> 
+> iris_test[,5:6]
+      Species  Predicted
+1      setosa     setosa
+2      setosa     setosa
+3      setosa     setosa
+4      setosa     setosa
+5      setosa     setosa
+6      setosa     setosa
+7  versicolor versicolor
+8  versicolor versicolor
+9  versicolor versicolor
+10  virginica  virginica
+11  virginica  virginica
+12  virginica versicolor
+13  virginica  virginica
+14  virginica  virginica
+> 

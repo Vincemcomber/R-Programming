@@ -1,0 +1,57 @@
+
+R version 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> ### USING K-MEANS CLUSTERING ###
+> 
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> unlabeled_iris<-iris%>%
++         select(-Species)
+> 
+> set.seed(111)
+> iris_cluster<-kmeans(unlabeled_iris,center=3)
+> table(iris_cluster$cluster, iris$Species)
+   
+    setosa versicolor virginica
+  1     50          0         0
+  2      0          2        36
+  3      0         48        14
+> 
+> plot(unlabeled_iris$Petal.Length,
++      unlabeled_iris$Petal.Width,
++      pch=c(21,22,23)[iris_cluster$cluster],
++      bg=c("red","gray","green")[iris_cluster$cluster])
+> 
+> plot(iris$Petal.Length, iris$Petal.Width,
++      pch=c(21,23,22)[iris$Species],
++      bg=c("red","green","gray")[iris$Species])
+> 
+> 
